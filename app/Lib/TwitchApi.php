@@ -5,7 +5,7 @@ class TwitchApi extends Object {
             $pUrl = Configure::read('Twitch.ApiURL');
         }
         $pUrl .= '/' . $pRequest;
-        return json_decode(file_get_contents($pUrl), true);
+        return json_decode(@file_get_contents($pUrl), true);
     }
     
     function GetBroadCasts($pUsername) {
