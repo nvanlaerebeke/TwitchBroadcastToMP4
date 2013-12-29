@@ -19,7 +19,6 @@ class VideoController extends AppController {
             //not running and file doesn't exist, so start the download/conversion process
             if(count($output) == 0) { 
                 $command = 'cd ' . ROOT . DS . APP_DIR . '; ' . CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'Console' . DS . 'cake CreateVideo ' . $pID.' > /dev/null 2>/dev/null &';
-                echo $command;
                 exec($command);
             }
             $this->set('canview', false);            

@@ -12,7 +12,7 @@ class StreamController extends AppController {
             throw new Exception('No game given');
         }
         
-        $streams = $this->TwitchApi->SearchStreams('q='.urlencode($this->params->query['game']).'&limit=100');
+        $streams = $this->TwitchApi->SearchStreams('q='.urlencode($this->params->query['game']).'&limit=30');
         $this->set('streams', $streams);
     }
     
@@ -23,7 +23,7 @@ class StreamController extends AppController {
             return;
         }
         
-        $streams = $this->TwitchApi->SearchStreams('q='.urlencode($this->data['Search']).'&limit=100');
+        $streams = $this->TwitchApi->SearchStreams('q='.urlencode($this->data['Search']).'&limit=30');
         $this->set('streams', $streams);
         $this->render('display');
     }
