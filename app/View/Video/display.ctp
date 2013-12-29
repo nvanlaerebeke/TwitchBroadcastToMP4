@@ -22,7 +22,11 @@
                             <td>Download %</td>
                             <td>
                                 <?php
-                                    echo (($totaldownloadsize != 0) ? (round(($downloadedsize /  $totaldownloadsize) * 100, 2)) : 0) . '% <br />';
+                                    if($canview) {
+                                        echo '100%';
+                                    } else {
+                                        echo (($totaldownloadsize != 0) ? (round(($downloadedsize /  $totaldownloadsize) * 100, 2)) : 0) . '% <br />';
+                                    }
                                 ?>
                             </td>
                         </tr>
